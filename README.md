@@ -53,4 +53,4 @@ src/
 
 ## Difficultés rencontrées
 
-*À compléter*
+_À compléter_
