@@ -25,11 +25,11 @@ Ce document suit l'avancement du projet, découpé de manière logique en foncti
 
 ### 2. Authentification & Comptes Utilisateurs
 
-- [ ] Mettre en place les hooks/layout serveurs pour gérer la session utilisateur (JWT/Cookies).
-- [ ] Créer la route d'inscription (`/register`) avec formulaire et validation.
-- [ ] Créer la route de connexion (`/login`) et déconnexion.
-- [ ] Créer la route profil (`/profile`) avec possibilité de modifier les infos.
-- [ ] Sécuriser les routes nécessitant une session active.
+- [x] Mettre en place les hooks/layout serveurs pour gérer la session utilisateur (JWT/Cookies).
+- [x] Créer la route d'inscription (`/register`) avec formulaire et validation.
+- [x] Créer la route de connexion (`/login`) et déconnexion.
+- [x] Créer la route profil (`/profile`) avec possibilité de modifier les infos.
+- [x] Sécuriser les routes nécessitant une session active.
 - _Message de commit suggéré :_ `feat: user authentication and profile management`
 
 ### 3. Recherche et Navigation Musique (Deezer)
