@@ -63,7 +63,10 @@ const authorizationHandle: Handle = async ({ event, resolve }) => {
 	const { session } = await event.locals.safeGetSession();
 
 	// Protéger les routes nécessitant une authentification (ex: /profile, /favorites)
-	if (event.url.pathname.startsWith('/profile') && !session) {
+	if (
+		(event.url.pathname.startsWith('/profile') || event.url.pathname.startsWith('/favorites')) &&
+		!session
+	) {
 		throw redirect(303, '/login');
 	}
 

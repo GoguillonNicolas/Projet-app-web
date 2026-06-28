@@ -34,29 +34,29 @@ Ce document suit l'avancement du projet, découpé de manière logique en foncti
 
 ### 3. Recherche et Navigation Musique (Deezer)
 
-- [ ] Créer la page d'accueil (`/`) avec barre de recherche d'albums/artistes (en temps réel ou validation).
-- [ ] Gérer l'affichage des résultats (liste principale) avec gestion des états d'UI (Loading, Error, Success).
-- [ ] Créer la page détail d'un album/artiste au clic (`/album/[id]` et `/artist/[id]`).
+- [x] Créer la page d'accueil (`/`) avec barre de recherche d'albums/artistes (en temps réel ou validation).
+- [x] Gérer l'affichage des résultats (liste principale) avec gestion des états d'UI (Loading, Error, Success).
+- [x] Créer la page détail d'un album/artiste au clic (`/album/[id]` et `/artist/[id]`).
 - _Message de commit suggéré :_ `feat: music search, list, and detail views using deezer api`
 
 ### 4. Gestion des Favoris (Universal Reactivity & Persistance BaaS)
 
-- [ ] Implémenter le store global des favoris avec les Runes Svelte 5 (`src/lib/stores/favorites.svelte.ts`).
-- [ ] Connecter le store à la base de données Supabase pour sauvegarder les favoris de l'utilisateur connecté.
-- [ ] Ajouter un bouton favoris (Ajout/Retrait) réactif sur les cartes d'albums et la page détail.
+- [x] Implémenter le store global des favoris avec les Runes Svelte 5 (`src/lib/stores/favorites.svelte.ts`).
+- [x] Connecter le store à la base de données Supabase pour sauvegarder les favoris de l'utilisateur connecté.
+- [x] Ajouter un bouton favoris (Ajout/Retrait) réactif sur les cartes d'albums et la page détail.
 - _Message de commit suggéré :_ `feat: favorites management using svelte runes and supabase persistence`
 
 ### 5. UI/UX, Filtres, Responsive & Bonus
 
-- [ ] Rendre l'interface complètement responsive (Mobile-first avec TailwindCSS v4).
-- [ ] Ajouter des filtres ou tris côté client sur la liste de recherche/favoris.
-- [ ] _Bonus_ : Thème clair/sombre persistant.
-- [ ] _Bonus_ : Améliorations de l'accessibilité (a11y).
+- [x] Rendre l'interface complètement responsive (Mobile-first avec TailwindCSS v4).
+- [x] Ajouter des filtres ou tris côté client sur la liste de recherche/favoris.
+- [x] _Bonus_ : Thème clair/sombre persistant.
+- [x] _Bonus_ : Améliorations de l'accessibilité (a11y) (HTML5 sémantique).
 - _Message de commit suggéré :_ `style: responsive design, client-side filters, and UI polishing`
 
 ### 6. CI/CD & Déploiement Vercel
 
-- [ ] Configurer le workflow GitHub Actions pour exécuter lint + check sur chaque PR (`.github/workflows/ci.yml`).
-- [ ] Configurer et déployer le projet sur Vercel avec ses variables d'environnement.
-- [ ] Rédiger le `README.md` final avec le descriptif et les liens requis.
+- [x] Configurer le workflow GitHub Actions pour exécuter lint + check sur chaque PR (`.github/workflows/ci.yml`).
+- [x] Préparer la configuration et les variables d'environnement pour le déploiement Vercel.
+- [x] Rédiger le `README.md` final avec le descriptif et les instructions requis.
 - _Message de commit suggéré :_ `ci: add github actions workflow and final readme`
