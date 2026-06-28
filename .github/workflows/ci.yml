@@ -23,6 +23,9 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Create Env File for Build
+        run: cp .env.example .env
+
       - name: Run Linter (Prettier + ESLint)
         run: npm run lint
 
