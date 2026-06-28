@@ -8,24 +8,24 @@ Le projet a été développé en utilisant **Svelte 5 (Runes)**, **TypeScript (m
 
 ## Fonctionnalités
 
--   **Recherche de musique** : Recherche d'albums et d'artistes en temps réel via l'API Deezer (gérée côté serveur pour éviter les soucis de CORS).
--   **Fiches détails** : Fiche complète pour les albums (avec liste des pistes et extraits audio de 30 secondes) et pour les artistes (avec discographie).
--   **SoundSorter** : Interface de tri comparative pour classer les titres d'un album (système de duels type tournoi Elo) et obtenir votre classement personnalisé.
--   **Gestion des favoris** : Ajout et retrait d'albums et artistes en favoris avec synchronisation en temps réel via le store réactif Svelte 5.
--   **Filtres et tris client** : Recherche, tri (A-Z, Z-A, récents) et filtrage (tous, albums, artistes) côté client sur la page des favoris.
--   **Authentification complète** : Inscription, connexion, déconnexion et modification d'informations de profil via **Supabase Auth & Database**.
--   **Thème dynamique** : Bascule de thème clair/sombre persistant (via `localStorage`).
--   **Design Premium** : Interface moderne, responsive (mobile-first), dotée de micro-animations et d'effets de flou (backdrop blur).
+- **Recherche de musique** : Recherche d'albums et d'artistes en temps réel via l'API Deezer (gérée côté serveur pour éviter les soucis de CORS).
+- **Fiches détails** : Fiche complète pour les albums (avec liste des pistes et extraits audio de 30 secondes) et pour les artistes (avec discographie).
+- **SoundSorter** : Interface de tri comparative pour classer les titres d'un album (système de duels type tournoi Elo) et obtenir votre classement personnalisé.
+- **Gestion des favoris** : Ajout et retrait d'albums et artistes en favoris avec synchronisation en temps réel via le store réactif Svelte 5.
+- **Filtres et tris client** : Recherche, tri (A-Z, Z-A, récents) et filtrage (tous, albums, artistes) côté client sur la page des favoris.
+- **Authentification complète** : Inscription, connexion, déconnexion et modification d'informations de profil via **Supabase Auth & Database**.
+- **Thème dynamique** : Bascule de thème clair/sombre persistant (via `localStorage`).
+- **Design Premium** : Interface moderne, responsive (mobile-first), dotée de micro-animations et d'effets de flou (backdrop blur).
 
 ---
 
 ## Stack Technique
 
--   **Frontend** : [SvelteKit](https://kit.svelte.dev/) (v2) + [Svelte 5](https://svelte.dev/) (Runes & Universal Reactivity)
--   **Styling** : [TailwindCSS](https://tailwindcss.com/) (v4)
--   **Base de données & Auth** : [Supabase](https://supabase.com/) (avec `@supabase/ssr` pour la gestion propre des sessions côté serveur/cookies)
--   **Hébergement & Déploiement** : [Vercel](https://vercel.com/)
--   **CI/CD** : [GitHub Actions](https://github.com/features/actions) (Linter + svelte-check exécutés à chaque Pull Request)
+- **Frontend** : [SvelteKit](https://kit.svelte.dev/) (v2) + [Svelte 5](https://svelte.dev/) (Runes & Universal Reactivity)
+- **Styling** : [TailwindCSS](https://tailwindcss.com/) (v4)
+- **Base de données & Auth** : [Supabase](https://supabase.com/) (avec `@supabase/ssr` pour la gestion propre des sessions côté serveur/cookies)
+- **Hébergement & Déploiement** : [Vercel](https://vercel.com/)
+- **CI/CD** : [GitHub Actions](https://github.com/features/actions) (Linter + svelte-check exécutés à chaque Pull Request)
 
 ---
 
@@ -63,25 +63,32 @@ WITH CHECK (auth.uid() = user_id);
 ## Démarrage Local
 
 ### 1. Cloner le projet et installer les dépendances
+
 ```bash
 npm install
 ```
 
 ### 2. Configurer les variables d'environnement
+
 Créez un fichier `.env` à la racine en copiant le fichier d'exemple :
+
 ```bash
 cp .env.example .env
 ```
+
 Complétez le fichier `.env` avec les identifiants API Supabase de votre projet :
+
 ```env
 PUBLIC_SUPABASE_URL="https://votre-projet.supabase.co"
 PUBLIC_SUPABASE_ANON_KEY="votre-cle-anon-publique"
 ```
 
 ### 3. Lancer le serveur de développement
+
 ```bash
 npm run dev
 ```
+
 L'application est disponible sur [http://localhost:5173](http://localhost:5173).
 
 ---
@@ -122,6 +129,8 @@ src/
 ---
 
 ## Qualité & Validation
+
 Le projet dispose d'une configuration rigoureuse pour garantir la qualité de code :
+
 - **Linter & Formatter** : ESLint et Prettier configurés. Commande `npm run lint` et `npm run format`.
 - **Validation TypeScript** : Lancement de `npm run check` (`svelte-check`) pour valider les types stricts.
