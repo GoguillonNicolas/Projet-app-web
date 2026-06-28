@@ -1,5 +1,7 @@
 # SoundSorter 🎵
 
+**URL de production Vercel** : [https://deezerbox.vercel.app/](https://deezerbox.vercel.app/)
+
 SoundSorter est une application de classement musical interactive. Elle vous permet de rechercher des albums et artistes via l'API Deezer, de sauvegarder vos favoris de manière persistante (via Supabase), et de classer vos titres préférés d'un album en les comparant deux à deux grâce à un algorithme de tri Elo ludique.
 
 Le projet a été développé en utilisant **Svelte 5 (Runes)**, **TypeScript (mode strict)** et **TailwindCSS v4**.

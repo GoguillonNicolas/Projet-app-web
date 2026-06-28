@@ -52,6 +52,14 @@
 		}
 	}
 
+	import { onDestroy } from 'svelte';
+
+	onDestroy(() => {
+		if (audioEl) {
+			audioEl.pause();
+		}
+	});
+
 	function formatDuration(seconds: number): string {
 		const mins = Math.floor(seconds / 60);
 		const secs = seconds % 60;

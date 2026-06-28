@@ -44,19 +44,35 @@
 		}
 	}
 
-	function playTrack(type: 'A' | 'B', previewUrl: string) {
-		stopAllAudio();
+	import { onDestroy } from 'svelte';
 
+	onDestroy(() => {
+		stopAllAudio();
+	});
+
+	function playTrack(type: 'A' | 'B', previewUrl: string) {
 		if (type === 'A') {
-			audioElA = new Audio(previewUrl);
-			audioElA.play();
-			playingA = true;
-			audioElA.onended = () => (playingA = false);
+			if (playingA) {
+				audioElA?.pause();
+				playingA = false;
+			} else {
+				stopAllAudio();
+				audioElA = new Audio(previewUrl);
+				audioElA.play();
+				playingA = true;
+				audioElA.onended = () => (playingA = false);
+			}
 		} else {
-			audioElB = new Audio(previewUrl);
-			audioElB.play();
-			playingB = true;
-			audioElB.onended = () => (playingB = false);
+			if (playingB) {
+				audioElB?.pause();
+				playingB = false;
+			} else {
+				stopAllAudio();
+				audioElB = new Audio(previewUrl);
+				audioElB.play();
+				playingB = true;
+				audioElB.onended = () => (playingB = false);
+			}
 		}
 	}
 

@@ -6,6 +6,8 @@
 
 	import { favoritesStore } from '$lib/stores/favorites.svelte';
 
+	import { themeStore } from '$lib/stores/theme.svelte';
+
 	let { data, children } = $props();
 	let { supabase, session } = $derived(data);
 
@@ -17,14 +19,8 @@
 		}
 	});
 
-	let isLightTheme = $state(false);
-
 	onMount(() => {
-		const storedTheme = localStorage.getItem('theme');
-		if (storedTheme === 'light') {
-			isLightTheme = true;
-			document.body.classList.add('light-theme');
-		}
+		themeStore.init();
 
 		const {
 			data: { subscription }
@@ -36,25 +32,24 @@
 
 		return () => subscription.unsubscribe();
 	});
-
-	function toggleTheme() {
-		isLightTheme = !isLightTheme;
-		if (isLightTheme) {
-			document.body.classList.add('light-theme');
-			localStorage.setItem('theme', 'light');
-		} else {
-			document.body.classList.remove('light-theme');
-			localStorage.setItem('theme', 'dark');
-		}
-	}
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="flex min-h-screen flex-col bg-slate-950 font-sans text-slate-100">
-	<header class="sticky top-0 z-50 border-b border-slate-800 bg-slate-900/50 backdrop-blur-md">
+<div
+	class="flex min-h-screen flex-col font-sans transition-colors duration-300 {themeStore.current ===
+	'light'
+		? 'bg-slate-50 text-slate-900'
+		: 'bg-slate-950 text-slate-100'}"
+>
+	<header
+		class="sticky top-0 z-50 border-b backdrop-blur-md transition-colors duration-300 {themeStore.current ===
+		'light'
+			? 'border-slate-200 bg-white/80'
+			: 'border-slate-800 bg-slate-900/50'}"
+	>
 		<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 			<a
 				href="/"
@@ -93,11 +88,11 @@
 
 				<!-- Theme Toggle -->
 				<button
-					onclick={toggleTheme}
+					onclick={() => themeStore.toggle()}
 					class="p-2 text-slate-400 transition-colors hover:text-violet-400 focus:outline-none"
 					aria-label="Basculer le thème"
 				>
-					{#if isLightTheme}
+					{#if themeStore.current === 'light'}
 						<!-- Moon icon -->
 						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path
